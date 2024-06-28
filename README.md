@@ -38,7 +38,7 @@ from diffprivlib_logger import deserialise_pipeline
 deserialised_pipeline = serialise_pipeline(serialised_pipeline)
 ```
 
-## Verfiy
+## Verify
 ```python
 assert pipeline == deserialised_pipeline
 ```
