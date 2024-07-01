@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
+[![ci tests](https://github.com/dscc-admin-ch/diffprivlib-logger/actions/workflows/tests.yml/badge.svg)](https://github.com/dscc-admin-ch/diffprivlib-logger/actions/workflows/tests.yml?query=branch%3Amain)
 
 Serialize and deserialize DiffPrivLib pipelines to and from JSON.
 
