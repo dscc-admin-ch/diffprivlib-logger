@@ -1,5 +1,8 @@
 # DiffPrivLib Logger
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
+
 Serialize and deserialize DiffPrivLib pipelines to and from JSON.
 
 It is inspired from [opendp-logger](https://github.com/opendp/opendp-logger/tree/main) and a first version was made by [Oblivious](https://www.oblivious.com/) for the [UN PET Lab Hackathon 2022](https://petlab.officialstatistics.org/).
@@ -36,9 +39,4 @@ serialised_pipeline = serialise_pipeline(pipeline)
 from diffprivlib_logger import deserialise_pipeline
 
 deserialised_pipeline = serialise_pipeline(serialised_pipeline)
-```
-
-## Verify
-```python
-assert pipeline == deserialised_pipeline
 ```
