@@ -10,7 +10,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
     name="diffprivlib_logger",
     packages=find_packages(),
-    version="0.0.1",
+    version="0.0.2",
     description="A logger wrapper for DiffPrivLib",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -27,7 +27,7 @@ setup(
     keywords=["diffprivliv", "logger", "serialiser", "deserialiser"],
     python_requires=">=3.10, <4",
     install_requires=[
-        "diffprivlib>=0.6.0",
+        "diffprivlib>=0.6.4",
         "scikit-learn==1.5.0",
     ],
 )
