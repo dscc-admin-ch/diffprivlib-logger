@@ -28,6 +28,5 @@ setup(
     python_requires=">=3.10, <4",
     install_requires=[
         "diffprivlib>=0.6.0",
-        "scikit-learn>=0.24.2",
     ],
 )
