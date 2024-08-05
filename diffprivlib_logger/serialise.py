@@ -3,7 +3,7 @@ import json
 
 import diffprivlib
 from sklearn.pipeline import Pipeline
-
+from diffprivlib_logger.constants import DPL, DPL_INSTANCE, DPL_TYPE
 
 class DiffprivlibEncoder(json.JSONEncoder):
     """Overwrites JSON Encoder class to serialise DiffPrivLib
@@ -16,7 +16,7 @@ class DiffprivlibEncoder(json.JSONEncoder):
             v[1] for v in inspect.getmembers(diffprivlib, inspect.isclass)
         ]
         if type(o) in types:
-            return "_dpl_instance:" + o.__class__.__name__
+            return DPL_INSTANCE + o.__class__.__name__
         return super().default(o)  # regular json encoding
 
     def encode(self, o: dict) -> str:
@@ -52,7 +52,7 @@ def serialise_pipeline(pipeline: Pipeline):
         )
 
     json_body = {
-        "module": "diffprivlib",
+        "module": DPL,
         "version": diffprivlib.__version__,
         "pipeline": [],
     }
@@ -63,7 +63,7 @@ def serialise_pipeline(pipeline: Pipeline):
         dict_params = {k: v for k, v in dict_params.items() if k in params}
         json_body["pipeline"].append(
             {
-                "type": "_dpl_type:" + step_fn.__class__.__name__,
+                "type": DPL_TYPE + step_fn.__class__.__name__,
                 "name": step_name,
                 "params": dict_params,
             }

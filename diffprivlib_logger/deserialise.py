@@ -3,6 +3,7 @@ from typing import Union
 
 import diffprivlib
 from sklearn.pipeline import Pipeline
+from diffprivlib_logger.constants import DPL, DPL_INSTANCE, DPL_TYPE
 
 
 class DiffPrivLibDecoder(json.JSONDecoder):
@@ -34,15 +35,15 @@ class DiffPrivLibDecoder(json.JSONDecoder):
 
         for k, v in dct.items():
             if isinstance(v, str):
-                if v[:10] == "_dpl_type:":
+                if v[:len(DPL_TYPE)] == DPL_TYPE:
                     try:
-                        dct[k] = getattr(diffprivlib.models, v[10:])
+                        dct[k] = getattr(diffprivlib.models, v[len(DPL_TYPE):])
                     except Exception as e:
                         raise ValueError(e) from e
 
-                elif v[:14] == "_dpl_instance:":
+                elif v[:len(DPL_INSTANCE)] == DPL_INSTANCE:
                     try:
-                        dct[k] = getattr(diffprivlib, v[14:])()
+                        dct[k] = getattr(diffprivlib, v[len(DPL_INSTANCE):])()
                     except Exception as e:
                         raise ValueError(e) from e
 
@@ -63,8 +64,8 @@ def deserialise_pipeline(diffprivlib_json: str) -> Pipeline:
     """
     dct = json.loads(diffprivlib_json, cls=DiffPrivLibDecoder)
     if "module" in dct.keys():
-        if dct["module"] != "diffprivlib":
-            raise ValueError("JSON 'module' not equal to 'diffprivlib'")
+        if dct["module"] != DPL:
+            raise ValueError(f"JSON 'module' not equal to '{DPL}'")
     else:
         raise ValueError("Key 'module' not in submitted json request.")
 
