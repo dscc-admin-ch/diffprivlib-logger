@@ -16,9 +16,9 @@ wheels = [
 ]
 
 [[package]]
-name = "diffprivlib"
-version = "0.6.6"
-source = { registry = "https://pypi.org/simple" }
+name = "diffprivlib-logger"
+version = "0.0.4"
+source = { editable = "." }
 dependencies = [
     { name = "joblib" },
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -29,20 +29,6 @@ dependencies = [
     { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "setuptools" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c7/14/b41715a8c48df80ce5e4f0459b03edb206e3b13fc0b399a8e7d13808e092/diffprivlib-0.6.6.tar.gz", hash = "sha256:564262ce534b13d58c82b1bbf109f25b5c55dc1b198674bc348d092e7a38a7f0", size = 98068, upload-time = "2025-04-10T13:58:37.691Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/23/cc/ea04afcaef23bd934eebba9d915fd71e876d9ce255884e78184f1c1445bf/diffprivlib-0.6.6-py3-none-any.whl", hash = "sha256:a8368611a43d76471839f14e2c6e576a979ff10f54c1957f150d538a28074751", size = 176862, upload-time = "2025-04-10T13:58:36.16Z" },
-]
-
-[[package]]
-name = "diffprivlib-logger"
-version = "0.0.4a1"
-source = { editable = "." }
-dependencies = [
-    { name = "diffprivlib" },
-    { name = "scikit-learn", version = "1.7.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "scikit-learn", version = "1.8.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
-]
 
 [package.optional-dependencies]
 test = [
@@ -51,9 +37,13 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "diffprivlib", specifier = ">=0.6.0" },
+    { name = "joblib", specifier = ">=0.16.0" },
+    { name = "numpy", specifier = ">=2.0.0" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=8.3" },
     { name = "scikit-learn", specifier = ">=0.24" },
+    { name = "scikit-learn", specifier = ">=1.4.0" },
+    { name = "scipy", specifier = ">=1.13.0" },
+    { name = "setuptools", specifier = ">=49.0.0" },
 ]
 provides-extras = ["test"]
 
