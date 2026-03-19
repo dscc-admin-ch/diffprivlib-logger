@@ -1,3 +1,45 @@
-[tool.black]
-line-length = 79
-include = '\.pyi?$'
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diffprivlib-logger"
+version = "0.0.4"
+description="A logger wrapper for DiffPrivLib"
+readme = "README.md"
+requires-python = ">=3.10, <4"
+authors = [
+    { name = "Data Science Competence Center", email = "dscc@bfs.admin.ch" },
+    { name = "Swiss Federal Statistical Office" },
+]
+license = "MIT"
+keywords = [
+    "diffprivlib",
+    "logger",
+    "serialiser",
+    "deserialiser",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+  "scikit-learn>=0.24",
+  "numpy >= 2.0.0",
+  "scikit-learn >= 1.4.0",
+  "scipy >= 1.13.0",
+  "joblib >= 0.16.0",
+  "setuptools >= 49.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dscc-admin/lomas/"
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.3",
+]

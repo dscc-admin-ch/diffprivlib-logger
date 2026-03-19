@@ -1,0 +1,33 @@
+name: Publish to PyPI.org
+
+on:
+  pull_request:
+    branches: [main]
+  release:
+    types: [published]
+  push:
+    tags:
+      - v*
+
+jobs:
+  pypi:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: 3.13
+
+      - name: Build Packages
+        run: |
+          uv build --wheel
+
+      - name: Sanity Check
+        run: |
+          uv run --isolated --no-project --with dist/diffprivlib* python -c 'import diffprivlib_logger'
+
+      - name: Publish Packages
+        if: github.event_name == 'release' || github.ref_type == 'tag'
+        run: |
+          uv publish --check-url https://pypi.org/simple --token ${{ secrets.PYPI_TOKEN }}
