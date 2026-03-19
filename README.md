@@ -1,8 +1,9 @@
 # DiffPrivLib Logger
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
-[![ci tests](https://github.com/dscc-admin-ch/diffprivlib-logger/actions/workflows/tests.yml/badge.svg)](https://github.com/dscc-admin-ch/diffprivlib-logger/actions/workflows/tests.yml?query=branch%3Amain)
+![PyPI - Version](https://img.shields.io/pypi/v/diffprivlib_logger)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/diffprivlib_logger)
+![PyPI - License](https://img.shields.io/pypi/l/diffprivlib_logger)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/dscc-admin-ch/diffprivlib-logger/tests.yml?branch=main&logo=github&label=Smoke%20Test)
 
 Serialize and deserialize DiffPrivLib pipelines to and from JSON.
 
